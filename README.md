@@ -432,10 +432,10 @@ Este projeto está sob licença **MIT** — livre para uso educacional e profiss
 
 
 
-**Rafael — Desenvolvedor Full Stack & Instrutor**
+**Juliana — Desenvolvedora Full Stack**
 
-🔗 **GitHub:** https://github.com/rafaelq80
+🔗 **GitHub:** https://github.com/juliana-barreto
 
-🔗 **LinkedIn:** https://www.linkedin.com/in/rafaelq80
+🔗 **LinkedIn:** https://www.linkedin.com/in/jsbarreto
 
 Projeto desenvolvido para **aprendizado contínuo**, **demonstração técnica** e **portfólio profissional**.
