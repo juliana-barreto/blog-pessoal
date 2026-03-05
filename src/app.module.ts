@@ -11,7 +11,7 @@ import { Post } from './post/entities/post.entity';
       port: 3306,
       username: 'root',
       password: 'root',
-      database: 'db_blogpessoal',
+      database: 'db_personalblog',
       entities: [Post],
       synchronize: true,
     }),
