@@ -1,18 +1,18 @@
 import { Injectable, InternalServerErrorException, HttpException, HttpStatus } from "@nestjs/common";
 import { InjectRepository } from "@nestjs/typeorm";
 import { DeleteResult, ILike, Repository } from "typeorm";
-import { Topic as TopicEntity } from "../entities/topic.entity";
+import { Topic } from "../entities/topic.entity";
 
 @Injectable()
 export class TopicService {
 
   constructor(
-    @InjectRepository(TopicEntity)
-    private topicRepository: Repository<TopicEntity>,
+    @InjectRepository(Topic)
+    private topicRepository: Repository<Topic>,
   ) {
   }
 
-  async findAll(): Promise<TopicEntity[]> {
+  async findAll(): Promise<Topic[]> {
     try {
       return await this.topicRepository.find();
     } catch (error) {
@@ -20,7 +20,7 @@ export class TopicService {
     }
   }
 
-  async findById(id: number): Promise<TopicEntity> {
+  async findById(id: number): Promise<Topic> {
     const topic = await this.topicRepository.findOne({
       where: { id }
     });
@@ -32,7 +32,7 @@ export class TopicService {
     return topic;
   }
 
-  async findAllByDescription(description: string): Promise<TopicEntity[]> {
+  async findAllByDescription(description: string): Promise<Topic[]> {
     try {
       return await this.topicRepository.find({
         where: { description: ILike(`%${description}%`) }
@@ -42,7 +42,7 @@ export class TopicService {
     }
   }
 
-  async create(topic: TopicEntity): Promise<TopicEntity> {
+  async create(topic: Topic): Promise<Topic> {
     try {
       topic.description = topic.description.trim();
       return await this.topicRepository.save(topic);
@@ -51,7 +51,7 @@ export class TopicService {
     }
   }
 
-  async update(topic: TopicEntity): Promise<TopicEntity> {
+  async update(topic: Topic): Promise<Topic> {
     try {
       await this.findById(topic.id);
       return await this.topicRepository.save(topic);
